@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
+import "./Dashboard.css"
 
 const Dashboard = (props) => {
 
@@ -7,7 +8,7 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         async function getData() {
-            await axios.get("https://crudcrud.com/api/5c497dd34e4c47a0ab2f37bd3ec5939a/avengers")
+            await axios.get("https://crudcrud.com/api/21cbb91320c74ec6a19467dcbb69f2a3/movies")
             .then((Response) => {
                 setData(Response.data)
                 console.log(Response.data[0])
@@ -24,15 +25,19 @@ const Dashboard = (props) => {
             <td>{data1._id}</td>
             <td>{data1["total-tickets"]}</td>
             <td>{data1["booked-tickets"]}</td>
-        </tr>)
+        </tr>
+       )
+        
     }
+    
         )
 };
     getRows(data);
     return (
         <div>
-            <h1>Movies</h1>
+            
             <table>
+                <caption><b>Movies</b></caption>
             <thead>
                 <tr>
                     <th>Movie Name</th>
